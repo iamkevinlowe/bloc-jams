@@ -17,7 +17,7 @@ body {
 .navbar {
     position: relative;
     padding: 0.5rem;
-    background-color: rgb(101,18,95,0.5);
+    background-color: rgba(101,18,95,0.5);
     z-index: 1;
 }
 
@@ -55,6 +55,11 @@ body {
     
 .links-container .navbar-link:hover {
     color: rgb(233,50,117);
+}
+
+.links-container .navbar-link:active {
+    color: rgb(233,50,117);
+    background-color: white;
 }
 
 .container {
