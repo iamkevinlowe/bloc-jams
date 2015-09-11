@@ -30,6 +30,29 @@ var albumMarconi = {
     ]
 };
 
+var albumBeastieBoys = {
+    name: 'Licensed to Ill',
+    artist: 'Beastie Boys',
+    label: 'Def Jam',
+    year: '1986',
+    albumArtUrl: 'assets/images/album_covers/beastie_boys-licensed_to_ill.jpg',
+    songs: [
+        { name: 'Rhymin & Stealin', length: '4:08' },
+        { name: 'The New Style', length: '4:36' },
+        { name: 'She\'s Crafty', length: '3:35' },
+        { name: 'Posse in Effect', length: '2:27' },
+        { name: 'Slow Ride', length: '2:56' },
+        { name: 'Girls', length: '2:14' },
+        { name: 'Fight for Your Right', length: '3:28' },
+        { name: 'No Sleep till Brooklyn', length: '4:07' },
+        { name: 'Paul Revere', length: '3:41' },
+        { name: 'Hold It Now, Hit It', length: '3:26' },
+        { name: 'Brass Monkey', length: '2:37' },
+        { name: 'Slow and Low', length: '3:38' },
+        { name: 'Time to Get Ill', length: '3:37' }
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     
     var template = 
@@ -68,5 +91,16 @@ var setCurrentAlbum = function(album) {
 window.onload = function() {
     
     setCurrentAlbum(albumPicasso);
+    
+    var albumImage = document.getElementsByClassName('album-cover-art')[0];
+    var albums = [albumPicasso, albumMarconi, albumBeastieBoys];
+    var currentAlbumIndex = 1;
+    
+    albumImage.addEventListener('click', function() {
+        setCurrentAlbum(albums[currentAlbumIndex++]);
+        if (currentAlbumIndex >= 3) {
+            currentAlbumIndex = 0;
+        }
+    });
     
 };
