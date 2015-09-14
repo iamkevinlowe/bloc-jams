@@ -110,7 +110,7 @@ var updateSeekBarWhileSongPlays = function() {
         currentSoundFile.bind('timeupdate', function(event) {
             var seekBarFillRatio = this.getTime() / this.getDuration();
             var $seekBar = $('.seek-control .seek-bar');
-            
+
             updateSeekPercentage($seekBar, seekBarFillRatio);
             setCurrentTimeInPlayerBar(this.getTime());
         });
@@ -157,9 +157,9 @@ var setupSeekBars = function() {
             var barWidth = $seekBar.width();
             var seekBarFillRatio = offsetX / barWidth;
             
-            if ($seekBar.hasClass('seek-control')) {
+            if ($seekBar.parent().hasClass('seek-control')) {
                 seek(seekBarFillRatio * currentSoundFile.getDuration());
-            } else if ($(this).parent().hasClass('volume')) {
+            } else if ($seekBar.parent().hasClass('volume')) {
                 setVolume(seekBarFillRatio * 100);
             }
             
